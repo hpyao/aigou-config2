@@ -11,8 +11,29 @@ eureka:
     instance-id: gateway-9527.com
     prefer-ip-address: true
 zuul:
+  #host:
+  #  connect-timeout-millis: 20000
+  #  socket-timeout-millis: 20000
   routes:
-    plat.serviceId: aigou-plat #这是调用满足条件的服务名，注意要小写
     plat.path: /plat/** #这是所有路径前的通配
+    plat.serviceId: aigou-plat #这是调用满足条件的服务名，注意要小写
+    product.path: /product/** #这是所有路径前的通配
+    product.serviceId: aigou-product #这是调用满足条件的服务名，注意要小写
   ignored-services: "*" #用*来通配符，忽略从9527端口通过服务名来调用
   prefix: "/services" #这是所有路径的前缀
+#ribbon:
+#  eureka:
+#    enabled: false
+#aigou-product:
+#  ribbon:
+#    listOfServers: http://127.0.0.1:8002
+hystrix: #hystrix配置
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
+ribbon: #ribbon负载均衡参数配置
+  ReadTimeout: 10000
+  ConnectTimeout: 10000
