@@ -5,14 +5,14 @@ server:
     max-http-post-size: 1048576
 spring:
   application:
-    name: aigou-common
+    name: egou-common
   data:
     elasticsearch: 
       cluster-name: elasticsearch
-      cluster-nodes: 127.0.0.1:9300 #9200ÊÇÍ¼ĞÎ½çÃæ¶Ë,9300´úÂë¶Ë
+      cluster-nodes: http://www.eureka-7001.com:9300 #9200ÃŠÃ‡ÃÂ¼ÃÃÂ½Ã§ÃƒÃ¦Â¶Ã‹,9300Â´ÃºÃ‚Ã«Â¶Ã‹
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:7001/eureka
+      defaultZone: http://www.eureka-7001.com:7001/eureka
   instance:
     prefer-ip-address: true
