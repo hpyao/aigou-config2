@@ -1,0 +1,13 @@
+server:
+  port: 8030
+spring:
+  application:
+    name: ITSOURCE-CMS
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/aigou_cms
+    username: root
+    password: admin
+mybatis-plus:
+  mapper-locations: classpath:cn/itsource/aigou/mapper/*Mapper.xml
+  type-aliases-package: cn.itsource.aigou.domain,cn.itsource.aigou.query
